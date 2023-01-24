@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-api-column-layout-order",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "description": "This plugin shows api column order in edit layout order",
   "strapi": {
     "name": "strapi-plugin-api-column-layout-order",
@@ -12,12 +12,22 @@
     "@strapi/typescript-utils": "^4.5.6",
     "typescript": "4.6.3"
   },
+  "files": [
+    "dist",
+    "strapi-server.js"
+  ],
   "author": {
-    "name": "Yundo Han (han@yun.do)"
+    "name": "Yundo Han",
+    "email": "han@yun.do",
+    "url": "https://github.com/ydhn"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ydhn/strapi-plugin-api-column-layout-order"
   },
   "maintainers": [
     {
-      "name": "Yundo Han (han@yun.do)"
+      "name": "Yundo Han"
     }
   ],
   "engines": {

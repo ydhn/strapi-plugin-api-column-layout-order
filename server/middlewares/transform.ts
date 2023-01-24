@@ -4,8 +4,16 @@ const isAPIRequest = (ctx) =>
   ctx.state.route.info &&
   ctx.state.route.info.type === 'content-api';
 
-const deepFlatten = function (array) {
-  return array.reduce((r, e) => Array.isArray(e) ? r.push(...deepFlatten(e)) : r.push(e), [])
+const deepFlatten = function (array){
+  let result = [];
+  array.forEach(function (elem) {
+    if (Array.isArray(elem)) {
+      result = result.concat(deepFlatten(elem));
+    } else {
+      result.push(elem);
+    }
+  });
+  return result;
 };
 
 const transform = async (strapi, ctx, next) => {
@@ -26,7 +34,8 @@ const transform = async (strapi, ctx, next) => {
     newResult = { ...newResult, ...ctx.body.data.attributes };
     ctx.body.data['attributes'] = newResult;
   } catch (e) {
-
+    // @ts-ignore
+    console.error(e);
   }
 }
 
